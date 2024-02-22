@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+}
+
+android {
+    namespace 'com.example.knowyourcustomerandroid'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.knowyourcustomerandroid"
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:3.7.0.301'
+
+    // Face
+    implementation 'com.huawei.hms:ml-computer-vision-face:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-face-emotion-model:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-face-feature-model:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-face-shape-point-model:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-face-3d-model:3.7.0.301'
+
+    // Skeleton detection SDK.
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton:3.7.0.301'
+    // Skeleton detection model.
+    implementation 'com.huawei.hms:ml-computer-vision-skeleton-model:3.7.0.301'
+    // Yoga detection model.
+    implementation 'com.huawei.hms:ml-computer-vision-yoga-model:3.7.0.301'
+
+    // Liveness Detection sdk and FULL SDK
+    implementation 'com.huawei.hms:ml-computer-vision-livenessdetection:3.7.0.302'
+    implementation 'com.huawei.hms:ml-computer-vision-interactive-livenessdetection:3.7.0.304'
+
+    // handkeypoint
+    implementation'com.huawei.hms:ml-computer-vision-handkeypoint:3.7.0.301'
+    implementation'com.huawei.hms:ml-computer-vision-handkeypoint-model:3.7.0.301'
+    implementation 'com.huawei.hms:ml-computer-vision-gesture-model:3.7.0.301'
+
+    //faceVerification
+    implementation 'com.huawei.hms:ml-computer-vision-faceverify:3.6.0.304'
+    implementation 'com.huawei.hms:ml-computer-vision-faceverify-model:3.6.0.304'
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
